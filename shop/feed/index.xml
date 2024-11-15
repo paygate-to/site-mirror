@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Shop - PayGate.to</title>
+	<atom:link href="https://paygate.to/shop/feed/" rel="self" type="application/rss+xml" />
+	<link>/shop/</link>
+	<description></description>
+	<lastBuildDate>Wed, 17 Jul 2024 09:07:23 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2024/04/cropped-New-Project-10-32x32.png</url>
+	<title>Shop - PayGate.to</title>
+	<link>/shop/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>WooCommerce Payment Redirect Plugin to Another WooCommerce Site with Custom API</title>
+		<link>/payment-gateway/woocommerce-payment-redirect-to-other-woocommerce-website-api/</link>
+		
+		<dc:creator><![CDATA[paygate.to]]></dc:creator>
+		<pubDate>Fri, 10 Mar 2023 16:59:53 +0000</pubDate>
+				<guid isPermaLink="false">/?post_type=product#038;p=89</guid>
+
+					<description><![CDATA[<div style="text-align: center;"><iframe title="YouTube video player" src="https://www.youtube-nocookie.com/embed/53n_lUm1vms?si=KtcNe5vyruKgA7yI" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+<p>⚠️Disclaimer: This plugin is intended to provide custom REST API communication between two WooCommerce websites allowing the same websites owner to redirect their customers from one website to make the payment on another WooCommerce website seamlessly through a custom hosted checkout setup. PayGate.to and its owners shall not be liable for any abuse or illegal use of the offered software/plugin.</p>
+<ul>
+<li><a href="https://paygate.to/docs/">📖 Plugin Documentation and Setup Guide</a></li>
+<li><a href="#faq">❓FAQ</a></li>
+<li><a href="https://websitea.paygate.to/">🧑🏻‍💻Demo</a></li>
+<li><a href="https://paygate.to/license/">📜 License</a></li>
+</ul>
+<p>The post <a href="https://paygate.to/payment-gateway/woocommerce-payment-redirect-to-other-woocommerce-website-api/">WooCommerce Payment Redirect Plugin to Another WooCommerce Site with Custom API</a> appeared first on <a href="https://paygate.to/">PayGate.to</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>

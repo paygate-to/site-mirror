@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Web Design Tips Archives - PayGate.to</title>
+	<atom:link href="https://paygate.to/web-design-tips/feed/" rel="self" type="application/rss+xml" />
+	<link>/web-design-tips/</link>
+	<description></description>
+	<lastBuildDate>Fri, 19 Jan 2024 18:38:12 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2024/04/cropped-New-Project-10-32x32.png</url>
+	<title>Web Design Tips Archives - PayGate.to</title>
+	<link>/web-design-tips/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Fix WooCommerce There Are No Payment Methods Available Error</title>
+		<link>/fix-woocommerce-there-are-no-payment-methods-available-error/</link>
+		
+		<dc:creator><![CDATA[paygate.to]]></dc:creator>
+		<pubDate>Fri, 19 Jan 2024 17:56:11 +0000</pubDate>
+				<category><![CDATA[Web Design Tips]]></category>
+		<guid isPermaLink="false">/?p=816</guid>
+
+					<description><![CDATA[<p>When you install a new WooCommerce website, blocks is enabled by default. This will cause most payment methods to stop working showing the message: &#8220;There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order&#8220;. Fixing this issue is very easy: [&#8230;]</p>
+<p>The post <a href="https://paygate.to/fix-woocommerce-there-are-no-payment-methods-available-error/">Fix WooCommerce There Are No Payment Methods Available Error</a> appeared first on <a href="https://paygate.to/">PayGate.to</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Allow Your Website To be Displayed or Embedded iframe</title>
+		<link>/allow-your-website-to-be-displayed-iframe/</link>
+		
+		<dc:creator><![CDATA[paygate.to]]></dc:creator>
+		<pubDate>Sat, 30 Dec 2023 21:07:34 +0000</pubDate>
+				<category><![CDATA[Web Design Tips]]></category>
+		<guid isPermaLink="false">/?p=758</guid>
+
+					<description><![CDATA[<p>The instant approval payment gateway using sardine.ai infrastructure may redirect your customers back to your website after payment using iframe. However, the default security settings including specifically the X-Frame-Options header, often restrict the ability to embed your site in iframes from different domains. In this comprehensive guide, we&#8217;ll explore two approaches to allow iframes on [&#8230;]</p>
+<p>The post <a href="https://paygate.to/allow-your-website-to-be-displayed-iframe/">Allow Your Website To be Displayed or Embedded iframe</a> appeared first on <a href="https://paygate.to/">PayGate.to</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Facebook Ads Tracking Multiple Domains</title>
+		<link>/facebook-ads-tracking-multiple-domains/</link>
+		
+		<dc:creator><![CDATA[paygate.to]]></dc:creator>
+		<pubDate>Sat, 25 Nov 2023 14:50:07 +0000</pubDate>
+				<category><![CDATA[Web Design Tips]]></category>
+		<guid isPermaLink="false">/?p=565</guid>
+
+					<description><![CDATA[<p>To implement Facebook tracking across multiple domains, including a scenario where the ad redirects users to a landing page on one domain and the purchase is completed on another domain, you can use one of the following methods:Use the Facebook Conversion API to send server-side events to Facebook. The Conversion API allows you to send [&#8230;]</p>
+<p>The post <a href="https://paygate.to/facebook-ads-tracking-multiple-domains/">Facebook Ads Tracking Multiple Domains</a> appeared first on <a href="https://paygate.to/">PayGate.to</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>

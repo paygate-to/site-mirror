@@ -740,6 +740,9 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 			<option value="bitnovo">Bitnovo</option>
 			<option value="simpleswap">SimpleSwap</option>
             <option value="topper">Topper</option>
+			<option value="swipelux">Swipelux</option>
+			<option value="kado">Kado.money</option>
+			<option value="itez">Itez</option>
 			<option value="transfi">Transfi (USD)</option>
 			<option value="interac">Interac (CAD)</option>
 			<option value="upi">UPI/IMPS (INR)</option>
@@ -771,6 +774,9 @@ const minAmounts = {
   'alchemypay': 5,	
   'mercuryo': 30,
   'topper': 10,
+  'swipelux': 5,
+  'kado': 10,
+  'itez': 35,
   'unlimit': 10,
   'bitnovo': 10,
   'rampnetwork': 5,
@@ -969,6 +975,10 @@ form.addEventListener('submit', async (event) => {
 <td>$5</td>
 </tr>
 <tr>
+<td>Swipelux</td>
+<td>$5</td>
+</tr>
+<tr>
 <td>Topper</td>
 <td>$10</td>
 </tr>
@@ -978,6 +988,10 @@ form.addEventListener('submit', async (event) => {
 </tr>
 <tr>
 <td>Bitnovo</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>Kado</td>
 <td>$10</td>
 </tr>
 <tr>
@@ -999,6 +1013,10 @@ form.addEventListener('submit', async (event) => {
 <tr>
 <td>MoonPay</td>
 <td>$30</td>
+</tr>
+<tr>
+<td>Itez</td>
+<td>$35</td>
 </tr>
 <tr>
 <td>Simplex</td>
@@ -1034,7 +1052,7 @@ form.addEventListener('submit', async (event) => {
 </tr>
 </tbody>
 </table>
-<div>💡<span style="color: red;">All payouts in USDC (Polygon) except for ChangeNOW payouts are in USDT (Polygon). Same wallet should work to receive both.</span>
+<div>💡<span style="color: red;">All payouts in USDC (Polygon) except for ChangeNOW and Itez payouts are in USDT (Polygon). Same wallet should work to receive both.</span>
 </div>
 <div>⚠️ Due to UK 🇬🇧 FCA regulations some providers may enforce a 24-hour cooling-off period on UK customers only before they can execute transactions. To bypass this issue you may need to enable non-FCA provider like <b>wert.io</b> to allow your UK 🇬🇧 customers purchase without waiting.</div>
 </div></div></div></div></div></div>

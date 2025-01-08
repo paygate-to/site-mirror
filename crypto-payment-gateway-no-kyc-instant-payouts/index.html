@@ -610,7 +610,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <meta name="generator" content="Powered by Visual Composer Website Builder - fast and easy-to-use drag and drop visual editor for WordPress.">
 <noscript><style>.vce-row-container .vcv-lozad {display: none}</style></noscript>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 	<style id="wp-fonts-local">@font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('https://paygate.to/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
-@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://paygate.to/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}</style>
+@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://paygate.to/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}.lightbox {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.8);justify-content: center;align-items: center;z-index: 1000;}.lightbox-content {font-size:0.7em!important;background: white;padding: 20px;border-radius: 5px;text-align: center;max-width: 500px;width: 90%;}.lightbox-content h2 {margin-top: 0;}.close-btn {margin-top: 10px;padding: 10px 20px;background-color: #f44336;color: white;border: none;border-radius: 5px;cursor: pointer;}.close-btn:hover {background-color: #d32f2f;}.open-btn {padding: 10px 20px;background-color: #4CAF50;color: white;border: none;border-radius: 5px;cursor: pointer;}.open-btn:hover {background-color: #45a049;}</style>
 <link rel="icon" href="https://paygate.to/wp-content/uploads/2024/04/cropped-New-Project-10-32x32.png" sizes="32x32">
 <link rel="icon" href="https://paygate.to/wp-content/uploads/2024/04/cropped-New-Project-10-192x192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="https://paygate.to/wp-content/uploads/2024/04/cropped-New-Project-10-180x180.png">
@@ -646,13 +646,13 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <li id="menu-item-1418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418 focus"><a href="https://paygate.to/instant-payment-gateway/">Payment Gateway</a></li><li id="menu-item-1418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418"><a href="https://paygate.to/crypto-payment-gateway-no-kyc-instant-payouts/">Crypto Payment Gateway</a></li>
 
 <li id="menu-item-473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://paygate.to/faq/">FAQ</a></li>
-<li id="menu-item-1447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li>
+<li id="menu-item-1447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li><li><button class="open-btn" onclick="openLightbox()">Login/Sign Up</button></li>
 </ul></div>
 <div class="handheld-navigation"><ul id="menu-main-1" class="menu">
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418"><a href="https://paygate.to/instant-payment-gateway/">Payment Gateway</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418"><a href="https://paygate.to/crypto-payment-gateway-no-kyc-instant-payouts/">Crypto Payment Gateway</a></li>
 
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://paygate.to/faq/">FAQ</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li><li><button class="open-btn" onclick="openLightbox()">Login/Sign Up</button></li>
 </ul></div> </nav><!-- #site-navigation -->
 				<ul id="site-header-cart" class="site-header-cart menu">
 			<li class="">
@@ -667,7 +667,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 	</header><!-- #masthead -->
 
 	<div class="storefront-breadcrumb"><div class="col-full"><nav class="woocommerce-breadcrumb" aria-label="breadcrumbs"><a href="https://paygate.to/">Home</a><span class="breadcrumb-separator"> / </span>Crypto Payment Gateway With Instant Payouts and No KYC</nav></div></div>
-	<div id="content" class="site-content" tabindex="-1">
+	<div id="content" class="site-content" tabindex="-1"> <div class="lightbox" id="lightbox"><div class="lightbox-content"><p>&#x2705; Our service is completely open access, this means: <b>No sign up needed. | No account needed for any provider. | No API keys.</b></p><button class="close-btn" onclick="closeLightbox()">Close</button></div></div>
 		<div class="col-full">
 
 		<div class="woocommerce"></div>
@@ -873,9 +873,9 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <div class="vce-row-content" data-vce-element-content="true"><div class="vce-col vce-col--md-auto vce-col--xs-1 vce-col--xs-last vce-col--xs-first vce-col--sm-last vce-col--sm-first vce-col--md-last vce-col--lg-last vce-col--xl-last vce-col--md-first vce-col--lg-first vce-col--xl-first" id="el-39b0f18a"><div class="vce-col-inner" data-vce-do-apply="border margin background  el-39b0f18a"><div class="vce-col-content" data-vce-element-content="true" data-vce-do-apply="padding el-39b0f18a"><div class="vce-text-block"><div class="vce-text-block-wrapper vce" id="el-d4ee15cb" data-vce-do-apply="all el-d4ee15cb">
 <h2 id="whmcsdownload"><strong>WHMCS Installation Guide</strong></h2>
 <p>💡 Click the platform logo to get the plugin files</p>
-<p><a href="https://paygate.to/crypto/WHMCS.zip"><img loading="lazy" decoding="async" class="alignnone wp-image-1406" src="https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-1024x341.png" sizes="(max-width: 980px) 100vw, 980px" srcset="https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-1024x341.png 1024w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-300x100.png 300w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-768x256.png 768w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-320x107.png 320w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-480x160.png 480w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-800x267.png 800w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-416x139.png 416w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo.png 1500w" alt="WHMCS" width="224" height="75"></a></p>
+<p><a target="_blank" rel="nofollow" href="https://github.com/paygate-to/WHMCS-Crypto-Payment-Gateway/archive/refs/heads/main.zip"><img loading="lazy" decoding="async" class="alignnone wp-image-1406" src="https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-1024x341.png" sizes="(max-width: 980px) 100vw, 980px" srcset="https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-1024x341.png 1024w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-300x100.png 300w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-768x256.png 768w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-320x107.png 320w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-480x160.png 480w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-800x267.png 800w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo-416x139.png 416w, https://paygate.to/wp-content/uploads/2024/04/whmcs-logo.png 1500w" alt="WHMCS" width="224" height="75"></a></p>
 <ol>
-<li style="text-align: left;"><a href="https://paygate.to/crypto/WHMCS.zip">Download the module</a></li>
+<li style="text-align: left;"><a target="_blank" rel="nofollow" href="https://github.com/paygate-to/WHMCS-Crypto-Payment-Gateway/archive/refs/heads/main.zip">Download the module</a></li>
 <li>Upload the files via FTP to the path /modules/gateways</li>
 <li>Activate the payment gateway for the desired cryptocurrency or coun from the admin settings and make sure you insert your valid wallet to receive instant payouts.</li>
 <li>After following these steps customers will be able to to pay invoices on your website using crypto.</li>
@@ -937,8 +937,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418"><a href="https://paygate.to/instant-payment-gateway/">Payment Gateway</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1418"><a href="https://paygate.to/crypto-payment-gateway-no-kyc-instant-payouts/">Crypto Payment Gateway</a></li>
 
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://paygate.to/faq/">FAQ</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li>
-</ul></div></div> </div>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1447"><a href="https://t.me/PayGate_to">Support</a></li></ul></div></div> </div>
 <div class="block footer-widget-3">
 <div id="nav_menu-4" class="widget widget_nav_menu"><div class="menu-footer2-container"><ul id="menu-footer2" class="menu">
 <li id="menu-item-1538" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1538"><a href="https://paygate.to/affiliate-white-label/">Affiliate White-label Payment Gateway</a></li>
@@ -1024,7 +1023,16 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
 			document.body.className = c;
 		})();</script>
-	<link rel="stylesheet" id="wc-blocks-style-css" href="https://paygate.to/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=wc-9.1.4" media="all">
+	
+    <script>
+        function openLightbox() {
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script><link rel="stylesheet" id="wc-blocks-style-css" href="https://paygate.to/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=wc-9.1.4" media="all">
 <script src="https://paygate.to/wp-content/plugins/visualcomposer/public/dist/runtime.bundle.js?ver=45.9.0" id="vcv:assets:runtime:script-js"></script>
 <script src="https://paygate.to/wp-content/plugins/visualcomposer/public/dist/front.bundle.js?ver=45.9.0" id="vcv:assets:front:script-js"></script>
 <script src="https://paygate.to/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.1.4" id="sourcebuster-js-js"></script>

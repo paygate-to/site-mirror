@@ -721,6 +721,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
         <label for="provider">Provider:</label><br>
         <select id="provider" name="provider" required="">
             <option value="wert">wert.io (USD)</option>
+			<option value="werteur">wert.io (EUR)</option>
 			<option value="stripe">Stripe (USA Only)</option>
 			<option value="sardine">Sardine.ai</option>
             <option value="guardarian">Guardarian</option>
@@ -757,30 +758,31 @@ const paymentLinkDiv = document.getElementById('payment-link');
 
 const minAmounts = {
   'wert': 1,
-  'guardarian': 50,
-  'particle': 5,
+  'werteur': 1,
+  'guardarian': 20,
+  'particle': 30,
   'robinhood': 5,
   'stripe': 2,
   'coinbase': 2,
   'transak': 15,
   'sardine': 30,
 'simpleswap': 30,  
-  'banxa': 50,
+  'banxa': 20,
   'utorg': 50,
   'simplex': 50,
-  'changenow': 50,
+  'changenow': 20,
   'transfi': 70,
   'alchemypay': 5,	
   'mercuryo': 30,
   'topper': 10,
-  'swipelux': 5,
-  'kado': 10,
+  'swipelux': 14,
+  'kado': 15,
   'unlimit': 10,
   'bitnovo': 10,
   'rampnetwork': 5,
   'upi': 100,
   'interac': 100,
-  'moonpay': 30
+  'moonpay': 20
 };
 
 form.addEventListener('submit', async (event) => {
@@ -813,6 +815,11 @@ form.addEventListener('submit', async (event) => {
   
   if (currency !== 'CAD' && (provider === 'interac')) {
     paymentLinkDiv.innerHTML = `<p style="color: red;">${provider} supports CAD currency only.<\/p>`;
+    return;
+  }
+  
+    if (currency !== 'EUR' && (provider === 'werteur')) {
+    paymentLinkDiv.innerHTML = `<p style="color: red;">${provider} supports EUR currency only.<\/p>`;
     return;
   }
 	
@@ -961,19 +968,11 @@ form.addEventListener('submit', async (event) => {
 <td>$5</td>
 </tr>
 <tr>
-<td>particle.network</td>
-<td>$5</td>
-</tr>
-<tr>
 <td>Alchemy Pay</td>
 <td>$5</td>
 </tr>
 <tr>
 <td>Robinhood (USA)</td>
-<td>$5</td>
-</tr>
-<tr>
-<td>Swipelux</td>
 <td>$5</td>
 </tr>
 <tr>
@@ -989,12 +988,32 @@ form.addEventListener('submit', async (event) => {
 <td>$10</td>
 </tr>
 <tr>
-<td>Kado</td>
-<td>$10</td>
+<td>Swipelux</td>
+<td>$14</td>
 </tr>
 <tr>
 <td>Transak</td>
 <td>$15</td>
+</tr>
+<tr>
+<td>Kado</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>MoonPay</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Banxa</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Guardarian</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>ChangeNOW</td>
+<td>$20</td>
 </tr>
 <tr>
 <td>mercuryo.io</td>
@@ -1009,23 +1028,11 @@ form.addEventListener('submit', async (event) => {
 <td>$30</td>
 </tr>
 <tr>
-<td>MoonPay</td>
+<td>particle.network</td>
 <td>$30</td>
 </tr>
 <tr>
 <td>Simplex</td>
-<td>$50</td>
-</tr>
-<tr>
-<td>Guardarian</td>
-<td>$50</td>
-</tr>
-<tr>
-<td>Banxa</td>
-<td>$50</td>
-</tr>
-<tr>
-<td>ChangeNOW</td>
 <td>$50</td>
 </tr>
 <tr>
@@ -1046,7 +1053,7 @@ form.addEventListener('submit', async (event) => {
 </tr>
 </tbody>
 </table>
-<div>💡<span style="color: red;">All payouts in USDC (Polygon) except for ChangeNOW payouts are in USDT (Polygon). Same wallet should work to receive both.</span>
+<div>💡<span style="color: red;">Payouts maybe sent in USDC or USDT (Polygon or BEP-20) or POL native token. Same wallet should work to receive all. Make sure you use a self-custodial wallet to receive payouts.</span>
 </div>
 <div>⚠️ Due to UK 🇬🇧 FCA regulations some providers may enforce a 24-hour cooling-off period on UK customers only before they can execute transactions. To bypass this issue you may need to enable non-FCA provider like <b>wert.io</b> to allow your UK 🇬🇧 customers purchase without waiting.</div>
 </div></div></div></div></div></div>

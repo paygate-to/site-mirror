@@ -723,6 +723,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
             <option value="wert">wert.io (USD)</option>
 			<option value="werteur">wert.io (EUR)</option>
 			<option value="stripe">Stripe (USA Only)</option>
+			<option value="revolut">Revolut</option>
 			<option value="sardine">Sardine.ai</option>
             <option value="guardarian">Guardarian</option>
             <option value="particle">particle.network</option>
@@ -772,7 +773,8 @@ const minAmounts = {
   'simplex': 50,
   'changenow': 20,
   'transfi': 70,
-  'alchemypay': 5,	
+  'revolut': 15,	
+  'alchemypay': 15,	
   'mercuryo': 30,
   'topper': 10,
   'swipelux': 14,
@@ -968,14 +970,9 @@ form.addEventListener('submit', async (event) => {
 <td>$4</td>
 </tr>
 <tr>
-<td>Alchemy Pay</td>
-<td>$5</td>
-</tr>
-<tr>
 <td>Robinhood (USA)</td>
 <td>$5</td>
 </tr>
-
 <tr>
 <td>Unlimit</td>
 <td>$10</td>
@@ -987,6 +984,14 @@ form.addEventListener('submit', async (event) => {
 <tr>
 <td>Swipelux</td>
 <td>$14</td>
+</tr>
+<tr>
+<td>Alchemy Pay</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>Revolut</td>
+<td>$15</td>
 </tr>
 <tr>
 <td>Transak</td>

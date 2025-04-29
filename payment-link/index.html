@@ -722,7 +722,6 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
         <select id="provider" name="provider" required="">
            <option value="wert">wert.io (USD)</option>
 			<option value="werteur">wert.io (EUR)</option>
-			<option value="switchere">Switchere</option>
 			<option value="stripe">Stripe (USA Only)</option>
 			<option value="sardine">Sardine.ai</option>
 			<option value="revolut">Revolut</option>
@@ -762,7 +761,6 @@ const paymentLinkDiv = document.getElementById('payment-link');
 const minAmounts = {
   'wert': 1,
   'werteur': 1,
-  'switchere': 5,
   'guardarian': 20,
   'revolut': 15,
   'particle': 30,
@@ -972,10 +970,6 @@ form.addEventListener('submit', async (event) => {
 <tr>
 <td>ramp.network</td>
 <td>$4</td>
-</tr>
-<tr>
-<td>Switchere</td>
-<td>$5</td>
 </tr>
 <tr>
 <td>Robinhood (USA)</td>

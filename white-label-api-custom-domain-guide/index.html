@@ -15,7 +15,7 @@
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="White-label API Custom Domain Guide - PayGate.to">
-	<meta property="og:description" content="In this tutorial you will learn how to use your own custom domain with our payment gateway API. You will be able to use your own domain instead of api.paygate.to and checkout.paygate.to. You will also be able to optionally insert your affiliate wallet to earn 0.5% on every sale your sub-merchant receive. You need to [&hellip;]">
+	<meta property="og:description" content="In this tutorial you will learn how to use your own custom domain with our payment gateway API. You will be able to use your own domain instead of api.paygate.to and checkout.paygate.to. You will also be able to optionally insert your affiliate wallet to earn your desired percentage on every sale your sub-merchant receive. You need to [&hellip;]">
 	<meta property="og:url" content="https://paygate.to/white-label-api-custom-domain-guide/">
 	<meta property="og:site_name" content="PayGate.to">
 	<meta property="article:published_time" content="2024-05-23T20:43:08+00:00">
@@ -687,19 +687,19 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 		
 			<span class="posted-on">Posted on <a href="https://paygate.to/white-label-api-custom-domain-guide/" rel="bookmark"><time class="entry-date published" datetime="2024-05-23T20:43:08+00:00">May 23, 2024</time><time class="updated" datetime="2024-07-25T08:54:22+00:00">July 25, 2024</time></a></span> <span class="post-author">by <a href="https://paygate.to/" rel="author">paygate.to</a></span> <h1 class="entry-title">White-label API Custom Domain Guide</h1>		</header><!-- .entry-header -->
 				<div class="entry-content">
-		<p>In this tutorial you will learn how to use your own custom domain with our payment gateway API. You will be able to use your own domain instead of <strong>api.paygate.to</strong> and <strong>checkout.paygate.to</strong>. You will also be able to optionally <strong>insert your affiliate wallet to earn 0.5%</strong> on every sale your sub-merchant receive.</p>
+		<p>In this tutorial you will learn how to use your own custom domain with our payment gateway API. You will be able to use your own domain instead of <strong>api.paygate.to</strong> and <strong>checkout.paygate.to</strong>. You will also be able to optionally <strong>insert your affiliate wallet to earn your desired percentage</strong> on every sale your sub-merchant receive.</p>
 <p>You need to make 4 steps:</p>
 <ol>
 <li>Your domain name must be using Cloudflare DNS service (free account plan will work fine).</li>
 <li>Create a free Cloudflare worker with our JS code to use our API.</li>
 <li>Route your domain to use the Cloudflare worker.</li>
-<li>Optionally you can insert your affiliate wallet within the code and redistribute our plugins to earn <a href="https://paygate.to/affiliate-white-label/">0.5% on your sub-merchant sales</a>.</li>
+<li>Optionally you can insert your affiliate wallet within the code and redistribute our plugins to earn <a href="https://paygate.to/affiliate-white-label/">percentage on your sub-merchant sales</a>.</li>
 </ol>
 <h2><strong>Use Cloudflare DNS</strong></h2>
 <ol>
 <li>Create a free Cloudflare account</li>
 <li>Add your domain name to use the free Cloudflare DNS service.</li>
-<li>After adding your domain you will be instructed to change your domain&#8217;s nameservers (NS) records</li>
+<li>After adding your domain you will be instructed to change your domain’s nameservers (NS) records</li>
 <li>Go to your domain registrar where you registered your domain and use the custom nameservers provided in your Cloudflare account. Those nameservers are different for each account.<br>
 <a href="https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1.png"><img decoding="async" class="alignnone wp-image-1560 " src="https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1.png" alt="Cloudflare Nameservers" width="502" height="389" srcset="https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1.png 826w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-300x232.png 300w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-768x594.png 768w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-320x248.png 320w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-480x371.png 480w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-800x619.png 800w, https://paygate.to/wp-content/uploads/2024/05/nameserver-names_hu161a7bd4048023790dd77ef9ed3eebf2_68958_826x639_resize_q75_box_3-77a0650d1-416x322.png 416w" sizes="(max-width: 502px) 100vw, 502px"></a>
 </li>
@@ -708,7 +708,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <a href="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50.png"><img decoding="async" class="wp-image-1561  alignnone" src="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-1024x399.png" alt="Cloudflare DNS records" width="699" height="272" srcset="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-1024x399.png 1024w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-300x117.png 300w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-768x299.png 768w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-1536x598.png 1536w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-320x125.png 320w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-480x187.png 480w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-800x312.png 800w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50-416x162.png 416w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-45-50.png 1902w" sizes="(max-width: 699px) 100vw, 699px"></a><br>
 </em></strong>
 </li>
-<li>You may need to add a proxied record for every domain/subdomain you want to use as a custom for our API. The IP address doesn&#8217;t matter as we will just need this as a route for our worker in the next steps.<br>
+<li>You may need to add a proxied record for every domain/subdomain you want to use as a custom for our API. The IP address doesn’t matter as we will just need this as a route for our worker in the next steps.<br>
 <a href="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51.png"><img decoding="async" class="alignnone wp-image-1562 " src="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-1024x370.png" alt="Cloudflare A record" width="663" height="240" srcset="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-1024x370.png 1024w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-300x108.png 300w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-768x277.png 768w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-1536x555.png 1536w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-320x116.png 320w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-480x173.png 480w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-800x289.png 800w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51-416x150.png 416w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-56-51.png 1914w" sizes="(max-width: 663px) 100vw, 663px"></a>
 </li>
 </ol>
@@ -718,7 +718,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <a href="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42.png"><img loading="lazy" decoding="async" class="alignnone wp-image-1563 " src="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42.png" alt="Cloudflare dashboard" width="448" height="518" srcset="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42.png 554w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42-259x300.png 259w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42-320x370.png 320w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42-480x555.png 480w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-57-42-416x481.png 416w" sizes="(max-width: 448px) 100vw, 448px"></a>
 </li>
 <li>Visit the Cloudflare workers tab<br>
-<img loading="lazy" decoding="async" class="alignnone size-medium wp-image-1564" src="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-58-03-118x300.png" alt="Cloudflare workers" width="118" height="300" srcset="https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-58-03-118x300.png 118w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-58-03-320x816.png 320w, https://paygate.to/wp-content/uploads/2024/05/image_2024-05-23_13-58-03.png 331w" sizes="(max-width: 118px) 100vw, 118px">
+<img src="cloudflare-workers.png" alt="Cloudflare workers" width="200px">
 </li>
 <li>Create a new worker after pressing (create application) button.</li>
 <li>After creating the worker from its settings edit the code.<br>
@@ -727,7 +727,7 @@ var _ckyStyles = {"css":".cky-overlay{background: #000000; opacity: 0.4; positio
 <li>You will need to insert our worker.js code into your worker. We offer two versions: <a rel="nofollow" href="https://github.com/paygate-to/white-label-api/blob/main/worker.js">standard worker.js</a> will allow you to use your own custom domain without an affiliate wallet injection this will simply allow you to use your custom domain with our API.<br>
 Optionally you can use the <a rel="nofollow" href="https://github.com/paygate-to/white-label-api/blob/main/hidden-affiliate-address-version/worker.js">affiliate version worker.js</a> which will allow you to use your hidden affiliate USDC (Polygon) wallet to earn 0.5% on every sale that go through your custom domain. Make sure to replace the wallet in the example code with your own USDC wallet to receive earnings.<br>
 <span style="color:red;">⚠️ Don't change the API domain name in the code you need to change the wallet address and set a custom error page only.</span>
-<div><a href="what-to-change.png"><img src="what-to-change.png" width="50%" alt="API custom domain code"/></a></div>
+<div><a href="what-to-change.png"><img src="what-to-change.png" width="50%" alt="API custom domain code"></a></div>
 </li>
 <li>Deploy the code to your Cloudflare worker.js<br>
 The free Cloudflare plan will allow you to use 100,000 request per day with your own custom domain free of charge.</li>
@@ -749,10 +749,14 @@ The free Cloudflare plan will allow you to use 100,000 request per day with your
 <h2><strong>Earning Affiliate Commission and White-label Plugins and Modules</strong></h2>
 <ul>
 <li>All our plugins and modules are open-source and available to be modified or re-branded you can visit our <a href="https://github.com/paygate-to" target="_blank" rel="nofollow noopener">GitHub</a> to access all code.</li>
-<li>You can easily re-brand all  plugins or modules. You can replace all instances of <strong>api.paygate.to</strong> and <strong>checkout.paygate.to</strong> within the code with your own custom domain configured in the previous steps.</li>
+<li>You can easily re-brand all&nbsp; plugins or modules. You can replace all instances of <strong>api.paygate.to</strong> and <strong>checkout.paygate.to</strong> within the code with your own custom domain configured in the previous steps.</li>
 <li>When you use the <a rel="nofollow" href="https://github.com/paygate-to/white-label-api/blob/main/hidden-affiliate-address-version/worker.js">affiliate worker.js</a> for your custom domain the affiliate parameter wallet will be added to every request without the need to insert it in the plugin code. This maybe useful to prevent your sub-merchant from removing your wallet or bypass your commission.</li>
 <li>Feel free to contact our support for any questions.</li>
 </ul>
+<h2><strong>Which worker.js File to Select</strong></h2>
+<p>There are different ready made worker.js files you will probably need one of them only per your use case.</p>
+<ul><li><a href="https://github.com/paygate-to/white-label-api/blob/main/worker.js" target="_blank" rel="nofollow">Default worker.js</a> would allow you to use your custom domain for both the credit card and crypto systems without affiliate earning.</li>
+<li><a href="https://github.com/paygate-to/white-label-api/blob/main/hidden-affiliate-address-version/worker.js" target="_blank" rel="nofollow">Default affiliate worker.js</a> would allow you to use your custom domain for the credit card system with 0.5% affiliate earning to the wallet inserted in the worker code.</li><li><a href="https://github.com/paygate-to/white-label-api/blob/main/hidden-affiliate-address-version/Custom-Affiliate-Commission/custom-affiliate.js" target="_blank" rel="nofollow">Custom affiliate worker.js</a> would allow you to use your custom domain for the credit card system with <a href="https://documenter.getpostman.com/view/14826208/2sA3Bj9aBi#5bcee463-af55-4e7f-914e-bfdcb71f4098" target="_blank" rel="nofollow">custom affiliate earning percentage</a> to the wallet inserted in the worker code.</li><li><a href="https://github.com/paygate-to/white-label-api/blob/main/hidden-affiliate-address-version/crypto-worker.js" target="_blank" rel="nofollow">Crypto affiliate worker.js</a> would allow you to use your custom domain for both the credit card and crypto systems with <a href="https://documenter.getpostman.com/view/14826208/2sAXjF8ujk#1120f17a-0153-4256-ab3a-b96be79f09bb" target="_blank" rel="nofollow">custom affiliate earning percentage</a> to the wallets inserted in the worker code.</li><li><a href="https://github.com/paygate-to/white-label-api/tree/main/hidden-affiliate-address-version/Increased-Affiliate-Commission" target="_blank" rel="nofollow">Increased affiliate worker.js commission</a> optional easy usage credit card only affiliate workers with increased percentage set for your convenience.</li></ul>
 		</div>
 <!-- .entry-content -->
 		
@@ -787,7 +791,7 @@ The free Cloudflare plan will allow you to use 100,000 request per day with your
 <li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78"><a href="https://paygate.to/info/about/">About Us</a></li>
 <li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://paygate.to/info/privacy-policy/">Privacy Policy</a></li>
 <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://paygate.to/info/terms/">Terms Of Use</a></li>
-<li id="menu-item-340" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-340"><a href="https://paygate.to/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-340"><a href="https://github.com/paygate-to/" target="_blank" rel="nofollow noopener"><img style="width: 4em;" src="https://paygate.to/svg/github.svg" alt="GitHub"></a></li><li id="menu-item-340" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-340"><a href="https://paygate.to/blog/">Blog</a></li>
 </ul></div></div>					</div>
 											<div class="block footer-widget-2">
 						<div id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-main-container"><ul id="menu-main-2" class="menu">

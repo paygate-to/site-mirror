@@ -766,7 +766,7 @@ async function fetchAndRenderProviders() {
         <tr>
           <td>
             ${p.provider_name}
-            ${p.status !== "active" ? ' <span title="Unstable">⚠️</span>' : ''}
+            ${p.status !== "active" ? ' <span title="Unstable">&#9888;&#65039;</span>' : ''}
           </td>
           <td>${amount}</td>
         </tr>
@@ -789,7 +789,7 @@ fetchAndRenderProviders();
 
 <div>💡<span style="color: red;">Payouts maybe sent in ETH or USDC or USDT (Polygon or BEP-20) or POL native token. Same wallet should work to receive all. Make sure you use a self-custodial wallet to receive payouts.</span>
 </div>
-<div>Providers with a warning ⚠ sign means it is either unstable or under maintenance provider so you may avoid enabling them at the moment.</div><div>📌 Due to UK 🇬🇧 FCA regulations some providers may enforce a 24-hour cooling-off period on UK customers only before they can execute transactions. To bypass this issue you may need to enable provider like <b>Revolut</b> to allow your UK 🇬🇧 customers purchase without waiting.</div>
+<div>&#9888;&#65039; Providers with a warning sign means it is either unstable or under maintenance provider so you may avoid enabling them at the moment.</div><div>📌 Due to UK 🇬🇧 FCA regulations some providers may enforce a 24-hour cooling-off period on UK customers only before they can execute transactions. To bypass this issue you may need to enable provider like <b>Revolut</b> to allow your UK 🇬🇧 customers purchase without waiting.</div>
 </div></div></div></div></div></div>
 </div></div>
 <div class="vce-row-container" data-vce-boxed-width="true"><div class="vce-row vce-element--has-background vce-row--col-gap-30 vce-row-equal-height vce-row-content--top" id="el-bd3088c5" data-vce-do-apply="all el-bd3088c5">

@@ -724,6 +724,7 @@ async function fetchAndRenderProviders() {
       if (p.minimum_currency === "USD") amount = `$${p.minimum_amount}`;
       else if (p.minimum_currency === "EUR") amount = `€${p.minimum_amount}`;
       else if (p.minimum_currency === "INR") amount = `₹${p.minimum_amount}`;
+	  else if (p.minimum_currency === "SEK") amount = `${p.minimum_amount} SEK`;
       else if (p.minimum_currency === "CAD") amount = `CA$${p.minimum_amount}`;
 
       html += `

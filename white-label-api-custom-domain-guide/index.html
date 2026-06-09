@@ -651,6 +651,964 @@
 		
 			<span class="posted-on">Posted on <a href="https://paygate.to/white-label-api-custom-domain-guide/" rel="bookmark"><time class="entry-date published" datetime="2024-05-23T20:43:08+00:00">May 23, 2024</time><time class="updated" datetime="2024-07-25T08:54:22+00:00">July 25, 2024</time></a></span> <span class="post-author">by <a href="https://paygate.to/" rel="author">paygate.to</a></span> <h1 class="entry-title">White-label API Custom Domain Guide</h1>		</header><!-- .entry-header -->
 				<div class="entry-content">
+ <!-- ============================================================= -->
+      <!-- ===== WLH EMBED · START — copy everything between these ====== -->
+      <!-- ===== two markers and paste at the TOP of your content ====== -->
+      <!-- ============================================================= -->
+      <div id="wlh" class="wlh">
+
+        <!-- big launch button (sits above your content) -->
+        <button type="button" class="wlh-cta" id="wlh-launch">
+          <span class="wlh-cta-glow" aria-hidden="true"></span>
+          <span class="wlh-cta-ico" aria-hidden="true">⚡</span>
+          <span class="wlh-cta-text">
+            <span class="wlh-cta-kick">Skip the docs</span>
+            <span class="wlh-cta-title">Deploy your custom domain automatically</span>
+            <span class="wlh-cta-sub">Answer a few questions → get a paste-ready <code>worker.js</code> + one-click setup. No reading required.</span>
+          </span>
+          <span class="wlh-cta-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <!-- the helper (hidden until launched) -->
+        <div class="wlh-app" id="wlh-app" hidden>
+
+          <div class="wlh-bar">
+            <button type="button" class="wlh-back" id="wlh-back">← Back to the guide</button>
+            <span class="wlh-bar-tag">api.paygate.to → your.domain</span>
+          </div>
+
+          <div class="wlh-steps">
+            <div class="s active" data-step="1">01 · Use case</div>
+            <div class="s" data-step="2">02 · Configure</div>
+            <div class="s" data-step="3">03 · Deploy</div>
+          </div>
+
+          <!-- STEP 1 -->
+          <section class="wlh-card" id="step1">
+            <h2><span class="n">[01]</span> What do you need?</h2>
+            <p class="lead">Pick what fits your project. Options that don't apply to a previous choice grey out automatically.</p>
+
+            <div class="q">
+              <div class="q-label"><span class="qnum">Q1</span> Which systems will run on your custom domain?</div>
+              <div class="opts" data-group="systems">
+                <div class="opt" data-val="cc"><span class="ot">Credit cards only</span><span class="od">Card checkout / hosted card flow</span></div>
+                <div class="opt" data-val="cc_crypto"><span class="ot">Cards + Crypto</span><span class="od">Card checkout &amp; multi-coin crypto</span></div>
+                <div class="opt" data-val="cc_vcc_crypto"><span class="ot">Cards + VCC + Crypto</span><span class="od">Everything, incl. virtual cards</span></div>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q-label"><span class="qnum">Q2</span> Do you want to earn affiliate commission on sub-merchant volume?</div>
+              <div class="opts" data-group="affiliate">
+                <div class="opt" data-val="none"><span class="ot">No earnings</span><span class="od">Plain white-label proxy</span></div>
+                <div class="opt" data-val="fixed"><span class="ot">Fixed 0.5%</span><span class="od">Simplest hidden-wallet version</span></div>
+                <div class="opt" data-val="preset"><span class="ot">Preset 1–5%</span><span class="od">Ready-made increased tiers</span></div>
+                <div class="opt" data-val="custom"><span class="ot">Custom %</span><span class="od">Set any commission you like</span></div>
+              </div>
+            </div>
+
+            <div class="q hidden" id="q-preset">
+              <div class="q-label"><span class="qnum">Q2b</span> Which preset commission tier?</div>
+              <div class="opts" data-group="preset">
+                <div class="opt" data-val="1">1%</div>
+                <div class="opt" data-val="1.5">1.5%</div>
+                <div class="opt" data-val="2">2%</div>
+                <div class="opt" data-val="3">3%</div>
+                <div class="opt" data-val="4">4%</div>
+                <div class="opt" data-val="5">5%</div>
+              </div>
+            </div>
+
+            <div class="q hidden" id="q-sub">
+              <div class="q-label"><span class="qnum">Q3</span> Do you want your own sub-affiliate program (your affiliates run their own workers under your domain)?</div>
+              <div class="opts" data-group="sub">
+                <div class="opt" data-val="no"><span class="ot">No</span><span class="od">Just my own domain &amp; earnings</span></div>
+                <div class="opt" data-val="yes"><span class="ot">Yes — full white-label</span><span class="od">Advanced sub-affiliate system</span></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 2 -->
+          <section class="wlh-card hidden" id="step2">
+            <h2><span class="n">[02]</span> Your worker &amp; configuration</h2>
+            <div class="result">
+              <div class="rhead">
+                <div class="rname"><small id="rec-tag">Recommended worker</small><span id="rec-name">—</span></div>
+                <div class="pill-row" id="rec-pills"></div>
+              </div>
+              <div class="rbody">
+                <p id="rec-desc"></p>
+                <div class="src">source&nbsp;→&nbsp;<a id="rec-src" href="#" target="_blank" rel="noopener">github.com/paygate-to/white-label-api</a></div>
+                <div id="cfg-fields"></div>
+                <div class="fee-note hidden" id="fee-note"></div>
+                <div class="btn-row">
+                  <button type="button" class="btn btn-primary" id="genBtn">⚙ Generate my worker.js</button>
+                  <button type="button" class="btn btn-ghost" id="backBtn">← Change answers</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 3 -->
+          <section class="wlh-card hidden" id="step3">
+            <h2><span class="n">[03]</span> Deploy</h2>
+
+            <div class="callout" id="preset-note" style="display:none">
+              <span>ℹ️</span><div><b>Preset tier:</b> the commission rate is fixed server-side for this file, so only your wallet and checkout domain are injected below — exactly what you need to change.</div>
+            </div>
+
+            <p class="lead" style="margin-bottom:14px">Your customized worker — wallet, domain and fees already filled in. Copy it into the Cloudflare worker editor, or download it.</p>
+
+            <div class="codewrap">
+              <div class="clabel">
+                <button type="button" class="mini" id="copyBtn">⧉ Copy</button>
+                <button type="button" class="mini" id="dlBtn">↓ worker.js</button>
+              </div>
+              <pre><code id="codeOut"></code></pre>
+            </div>
+
+            <div class="callout warn" style="margin-top:16px">
+              <span>⚠</span><div><b>Never change</b> <code>https://api.paygate.to</code> inside the file — that is the upstream the proxy cloaks. You only change the wallet, your domains, the error page and (if custom) the fee split.</div>
+            </div>
+
+            <h2 style="margin-top:26px"><span class="n">[03b]</span> Push it live</h2>
+            <p class="lead" style="margin-bottom:14px">One-click deploy installs the <b>default</b> worker. You then paste <b>your</b> generated code over it and point your domain at it — three short steps.</p>
+            <ol class="deploy">
+              <li><b>Deploy the worker</b><div class="h">Click below. Cloudflare imports the repo and deploys the default <code>worker.js</code> to a free <code>*.workers.dev</code> URL (100,000 requests/day).</div>
+                <div class="btn-row" style="margin-top:10px">
+                  <a class="btn btn-primary" id="deployBtn" href="#" target="_blank" rel="noopener">🚀 Deploy to Cloudflare</a>
+                </div>
+              </li>
+              <li><b>Replace the default code with YOUR code</b><div class="h">Open the new worker → <b>Edit code</b>. Select all (<code>Ctrl/Cmd A</code>), delete, and paste the customized <code>worker.js</code> from the box above (it has your wallet, domain &amp; fees baked in). Then press <b>Deploy</b> again.</div>
+                <div class="btn-row" style="margin-top:10px">
+                  <button type="button" class="btn btn-ghost" id="copyBtn2">⧉ Copy my worker.js again</button>
+                </div>
+                <div class="callout warn" style="margin-top:12px"><span>⚠</span><div>The deploy button can only install the <b>default</b> template — it can't inject your wallet/domain. This paste step is what makes the worker actually yours, so don't skip it.</div></div>
+              </li>
+              <li><b>Set your custom domain</b><div class="h">In the worker, open the <b>Domains &amp; Routes</b> tab → <b>Add → Custom domain</b>, and enter your subdomain (e.g. <code>api.yourdomain.com</code>). Cloudflare creates the DNS record automatically — repeat for each subdomain (<code>payment.</code>, etc.). The domain must be on this Cloudflare account.</div></li>
+              <li><b>Test</b><div class="h">Your domain now behaves exactly like <code>api.paygate.to</code>. Hit any endpoint from the API docs to confirm it responds through your domain.</div></li>
+            </ol>
+
+            <div class="btn-row" style="margin-top:22px">
+              <button type="button" class="btn btn-ghost" id="restartBtn">↺ Start over</button>
+              <button type="button" class="btn btn-ghost" id="closeBtn">← Back to the guide</button>
+            </div>
+          </section>
+
+          <div class="wlh-toast" id="wlh-toast">copied</div>
+        </div><!-- /.wlh-app -->
+
+        <script type="text/plain" id="tpl-default">
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  // Define the target URL to cloak (Don&#x27;t change this)
+  const targetUrl = &#x27;https://api.paygate.to&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+  
+    // Add the domain parameter to the URL while preserving the existing search params
+ if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;domain=checkout.example.com&#x27;;
+ }
+  
+  const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers: {
+    ...Object.fromEntries(request.headers),
+    &#x27;PGTO-IPCountry&#x27;: request.cf?.country || &#x27;XX&#x27;
+  },
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+  
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+
+  // Check if the response status code is in the 40X range and redirect to custom error page
+  if (response.status &gt;= 400) {
+    return Response.redirect(&#x27;https://www.example.com&#x27;, 302);
+  }
+
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+  
+  return modifiedResponse;
+}
+</script>
+<script type="text/plain" id="tpl-affiliate">
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  // Define the target URL to cloak (Don&#x27;t change this value)
+  const targetUrl = &#x27;https://api.paygate.to&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+
+  // Check if the path contains &quot;wallet.php&quot; and replace it with &quot;affiliate.php&quot;
+  if (url.pathname.includes(&#x27;wallet.php&#x27;)) {
+    url.pathname = url.pathname.replace(&#x27;/wallet.php&#x27;, &#x27;/affiliate.php&#x27;);
+  }
+
+  // Add the affiliate parameter to the URL while preserving the existing search params
+  if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&amp;domain=checkout.example.com&#x27;;
+  }
+
+  // Create a modified request with the updated URL
+  const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers: {
+    ...Object.fromEntries(request.headers),
+    &#x27;PGTO-IPCountry&#x27;: request.cf?.country || &#x27;XX&#x27;
+  },
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+
+  // If the response status code is in the 40X range, redirect to custom error page https://www.example.com/error
+  if (response.status &gt;= 400) {
+    return Response.redirect(&#x27;https://www.example.com/error&#x27;, 302);
+  }
+
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+
+  return modifiedResponse;
+}
+</script>
+<script type="text/plain" id="tpl-custom">
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  // Define the target URL to cloak (This URL should remain intact and you should never replace it)
+  const targetUrl = &#x27;https://api.paygate.to&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+
+  // Check if the path contains &quot;wallet.php&quot; and replace it with &quot;custom-affiliate.php&quot;
+  if (url.pathname.includes(&#x27;wallet.php&#x27;)) {
+    url.pathname = url.pathname.replace(&#x27;/wallet.php&#x27;, &#x27;/custom-affiliate.php&#x27;);
+  }
+if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  // Add the affiliate parameter to the URL while preserving the existing search params
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&amp;domain=checkout.example.com&#x27;;
+  
+  // Set custom fees total should always be 0.99
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate_fee=0.01&#x27;;
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;merchant_fee=0.98&#x27;;
+}
+  
+  // Create a modified request with the updated URL
+  const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers: {
+    ...Object.fromEntries(request.headers),
+    &#x27;PGTO-IPCountry&#x27;: request.cf?.country || &#x27;XX&#x27;
+  },
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+
+  // If the response status code is in the 40X range, redirect to custom error page https://www.example.com/error
+  if (response.status &gt;= 400) {
+    return Response.redirect(&#x27;https://www.example.com/error&#x27;, 302);
+  }
+
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+
+  return modifiedResponse;
+}
+</script>
+<script type="text/plain" id="tpl-crypto">
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  // Define the target URL to cloak (This URL should remain intact and you should never replace it)
+  const targetUrl = &#x27;https://api.paygate.to&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+
+  // Check if the path contains &quot;wallet.php&quot; and replace it with &quot;custom-affiliate.php&quot;. This will work for both credit card and crypto systems and the commission should be set in the relevant code section below.
+  if (url.pathname.includes(&#x27;wallet.php&#x27;)) {
+    url.pathname = url.pathname.replace(&#x27;/wallet.php&#x27;, &#x27;/custom-affiliate.php&#x27;);
+  }
+
+  // Check the URL path and append the appropriate affiliate wallet parameter (Make sure to replace each wallet below with your own wallet matching the correct blockchain network to receive affiliate commission.)
+  if (url.pathname.includes(&#x27;/control/&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/btc&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/bch&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/ltc&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=ltc1q7zhvk3xwhszepcplsyprzuh68xnw6mysd5k786&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/doge&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=D62eMUkApXg3R48CsVTyr8V4WFbeCijSyc&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/eth&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/trx&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=TAUN6FwrnwwmaEqYcckffC7wYmbaS6cBiX&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/bep20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/erc20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/arbitrum&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/polygon&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/avax-c&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/linea&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  }	else if (url.pathname.includes(&#x27;/crypto/optimism&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/base&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/monad&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/trc20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=TAUN6FwrnwwmaEqYcckffC7wYmbaS6cBiX&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/sol&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=CnkEQKAQ7s7ZtnRcoxahMaxv29rkQkTSLhA5cGosHDWp&#x27;;
+  }
+  
+  // Custom hosted multi-coin domain name
+  if (url.pathname.includes(&#x27;/crypto/hosted.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;domain=api.example.com&#x27;;
+  }
+
+  // Set custom fees total should always be 0.99 (The commission set here should work for both credit cards and crypto systems)
+  if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate_fee=0.01&#x27;;
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;merchant_fee=0.98&#x27;;
+  }
+
+  // Create the modified request
+  const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers: {
+    ...Object.fromEntries(request.headers),
+    &#x27;PGTO-IPCountry&#x27;: request.cf?.country || &#x27;XX&#x27;
+  },
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+  
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+  
+    // If the response status code is in the 40X range, redirect to custom error page https://www.example.com/error
+  if (response.status &gt;= 400) {
+    return Response.redirect(&#x27;https://www.example.com/error&#x27;, 302);
+  }
+  
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+  
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+  
+  return modifiedResponse;
+}
+</script>
+<script type="text/plain" id="tpl-advanced">
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  // Define the target URL to cloak (This URL should remain intact and you should never replace it)
+  const targetUrl = &#x27;https://api.paygate.to&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+
+  // Check if the path contains &quot;wallet.php&quot; and replace it with &quot;custom-affiliate.php&quot;. This will work for both credit card and crypto systems and the commission should be set in the relevant code section below.
+  if (url.pathname.includes(&#x27;wallet.php&#x27;)) {
+    url.pathname = url.pathname.replace(&#x27;/wallet.php&#x27;, &#x27;/custom-affiliate.php&#x27;);
+  }
+
+  // Check the URL path and append the appropriate affiliate wallet parameter (Make sure to replace each wallet below with your own wallet matching the correct blockchain network to receive affiliate commission.)
+  if (url.pathname.includes(&#x27;/control/&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/cards&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/btc&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/bch&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/ltc&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=ltc1q7zhvk3xwhszepcplsyprzuh68xnw6mysd5k786&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/doge&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=D62eMUkApXg3R48CsVTyr8V4WFbeCijSyc&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/eth&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/trx&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=TAUN6FwrnwwmaEqYcckffC7wYmbaS6cBiX&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/bep20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/erc20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/arbitrum&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/polygon&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/avax-c&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/linea&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  }	else if (url.pathname.includes(&#x27;/crypto/optimism&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/base&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/monad&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/trc20&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=TAUN6FwrnwwmaEqYcckffC7wYmbaS6cBiX&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/sol&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=CnkEQKAQ7s7ZtnRcoxahMaxv29rkQkTSLhA5cGosHDWp&#x27;;
+  }
+  
+  // Custom hosted payment pages domain name
+  if (!url.searchParams.has(&#x27;domain&#x27;)) {
+  if (url.pathname.includes(&#x27;/crypto/hosted.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;domain=api.example.com&#x27;;
+  } else if (url.pathname.includes(&#x27;/pay.php&#x27;)) {
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;domain=checkout.example.com&#x27;;
+  }
+  }
+  
+  // Optional set commission for the sub-affiliate credit card system. Here you set the commission for sub-affiliate who will market your credit card white-label
+  // Your sub-affiliate can have workers pointing to your own white-labeled API custom domain while setting their own custom commission
+  // Example https://api.yourdomain.com/set-affiliate.php?address=0xF977814e90dA44bFA03b6295A0616a897441aceC&amp;callback=https%3A%2F%2Fwww.example.com%2Forder%3Fnumber%3D82173314628191&amp;merchant_fee=0.97&amp;sub_affiliate_fee=0.01&amp;sub_affiliate=0x082489A616aB4D46d1947eE3F912e080815b08DA
+  
+  if (url.pathname.includes(&#x27;/set-affiliate.php&#x27;)) {
+  url.pathname = url.pathname.replace(&#x27;/set-affiliate.php&#x27;, &#x27;/control/custom-sub-affiliate.php&#x27;);  
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate_fee=0.01&#x27;; //Total custom fees should always be 0.99 so if you set yours 1% (0.01) per the example then you instruct your sub-affiliate for 0.98 total in your API docs.
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;; // The affiliate wallet where you will receive earnings and your sub-affiliate can&#x27;t change.
+  } else if (url.pathname.includes(&#x27;/vcc-set-affiliate.php&#x27;)) {
+	  
+// Optional set commission for the sub-affiliate virtual credit card system. Here you set the commission for sub-affiliate who will market your VCC white-label
+// Your sub-affiliate can have workers pointing to your own white-labeled API custom domain while setting their own custom commission
+// Example https://api.yourdomain.com/vcc-set-affiliate.php?provider=mastercard&amp;amount=5&amp;sub_affiliate_fee=0.03&amp;sub_affiliate=0x082489A616aB4D46d1947eE3F912e080815b08DA
+  
+  url.pathname = url.pathname.replace(&#x27;/vcc-set-affiliate.php&#x27;, &#x27;/crypto/cards/custom-sub-affiliate.php&#x27;);  
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate_fee=0.07&#x27;; //Your own percentage commission to impose on VCC cards orders so 0.07 for example means 7% earning of any virtual card value ordered.
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;; // The affiliate wallet where you will receive earnings and your sub-affiliate can&#x27;t change.  
+  } else {
+	  if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  // Set custom fees total should always be 0.99 (The commission set here should work for both credit cards and crypto systems for your direct merchants)
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate_fee=0.01&#x27;;
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;merchant_fee=0.98&#x27;;
+	  }
+  }	  
+
+  // Create the modified request
+const headers = new Headers(request.headers);
+
+// Add geo header ONLY if it does not already exist
+if (!headers.has(&#x27;PGTO-IPCountry&#x27;)) {
+  headers.set(
+    &#x27;PGTO-IPCountry&#x27;,
+    request.cf?.country || &#x27;XX&#x27;
+  );
+}
+
+// Create the modified request
+const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers,
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+  
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+  
+    // If the response status code is in the 40X range, redirect to custom error page https://www.example.com/error
+ if (response.status &gt;= 400) {
+
+  // Fetch error page internally
+  const errorPage = await fetch(&#x27;https://www.example.com/error&#x27;);
+  
+  return new Response(errorPage.body, {
+    status: 400,
+    headers: {
+      &#x27;Content-Type&#x27;: &#x27;text/html&#x27;
+    }
+  });
+}
+  
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+  
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+  
+  return modifiedResponse;
+}
+</script>
+<script type="text/plain" id="tpl-subaffiliate">
+// This worker is an example to be used by your sub-affiliate pointing to your domain while setting their own commission
+addEventListener(&#x27;fetch&#x27;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  // Define the target URL to cloak
+  const targetUrl = &#x27;https://api.white-labeled-domain.com&#x27;;
+  
+  // Modify the request URL to replace the worker&#x27;s domain with the target domain
+  const url = new URL(request.url);
+  url.hostname = new URL(targetUrl).hostname;
+
+  // Check if the path contains &quot;wallet.php&quot; and replace it with &quot;set-affiliate.php&quot;
+  if (url.pathname.includes(&#x27;/control/wallet.php&#x27;)) {
+    url.pathname = url.pathname.replace(&#x27;/control/wallet.php&#x27;, &#x27;/set-affiliate.php&#x27;);
+  } else if (url.pathname.includes(&#x27;/crypto/cards/wallet.php&#x27;)) {
+	url.pathname = url.pathname.replace(&#x27;/crypto/cards/wallet.php&#x27;, &#x27;/vcc-set-affiliate.php&#x27;);
+  }
+if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
+  // Add the affiliate parameter to the URL while preserving the existing search params
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;sub_affiliate=0x3B98AFD0Bb4b4291eD825d1A8d5E62b14800cf9e&amp;domain=checkout.sub-affiliate-website.com&#x27;;
+  
+  // Set custom fees. The total here would depend on the &amp;affiliate_fee= parameter set in your advanced white label worker so the final total should always be 0.99
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;sub_affiliate_fee=0.01&#x27;; // Example where your sub-affiliate set their commission to 1%
+  url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;merchant_fee=0.97&#x27;; // Here we used example where your original worker has &amp;affiliate_fee=0.01 (1%) so you instruct your sub-affiliate in your API docs for a total of 0.98 and the final total would be 0.99
+}
+  // Create a modified request with the updated URL
+  const modifiedRequest = new Request(url.toString(), {
+  method: request.method,
+  headers: {
+    ...Object.fromEntries(request.headers),
+    &#x27;PGTO-IPCountry&#x27;: request.cf?.country || &#x27;XX&#x27;
+  },
+  body: request.body ? request.clone().body : null,
+  redirect: &#x27;manual&#x27;
+});
+
+
+  // Make a request to the target URL
+  const response = await fetch(modifiedRequest);
+  
+  if (response.status &gt;= 300 &amp;&amp; response.status &lt; 400) {
+    return response;
+  }
+
+  // If the response status code is in the 40X range, redirect to custom error page https://www.example.com/error
+  if (response.status &gt;= 400) {
+    return Response.redirect(&#x27;https://www.sub-affiliate-website.com/error&#x27;, 302);
+  }
+
+  // Clone the response to modify headers
+  const modifiedResponse = new Response(response.body, response);
+
+  // Set headers to cloak the origin
+  modifiedResponse.headers.set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;);
+
+  return modifiedResponse;
+}
+</script>
+
+        <style id="wlh-style">
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700;800&display=swap');
+
+        /* ===== everything scoped under #wlh so it can't touch your theme ===== */
+        #wlh{
+          --bg:#ffffff; --panel:#ffffff; --panel-2:#f5f8f6;
+          --line:#e4ebe7; --line-2:#d3ddd8;
+          --ink:#10231b; --ink-dim:#566860; --ink-faint:#92a39b;
+          --accent:#0ba463; --accent-deep:#067a4b; --accent-soft:rgba(11,164,99,.10);
+          --amber:#b7791f; --red:#dc2626;
+          --code-bg:#0e1714; --code-ink:#d2efe2;
+          --mono:'Space Mono',ui-monospace,monospace;
+          --sans:'Sora',system-ui,-apple-system,sans-serif;
+          --shadow:0 22px 50px -32px rgba(8,40,28,.45);
+          font-family:var(--sans); color:var(--ink); line-height:1.55;
+          -webkit-font-smoothing:antialiased; text-align:left; margin:0 0 26px;
+        }
+        #wlh *{box-sizing:border-box}
+        #wlh button{font-family:var(--sans);border:0;background:none;cursor:pointer;color:inherit}
+        #wlh .hidden{display:none !important}
+        #wlh code{font-family:var(--mono);font-size:.86em;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--accent-deep)}
+
+        /* ---- launch CTA ---- */
+        #wlh .wlh-cta{
+          position:relative;width:100%;display:flex;align-items:center;gap:18px;text-align:left;
+          background:linear-gradient(135deg,#ffffff,#f3faf6);
+          border:1px solid var(--line-2);border-radius:18px;padding:22px 24px;overflow:hidden;
+          box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;
+        }
+        #wlh .wlh-cta:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 30px 60px -34px rgba(8,40,28,.5)}
+        #wlh .wlh-cta-glow{position:absolute;inset:0;background:radial-gradient(420px 160px at 88% -20%,var(--accent-soft),transparent 70%);pointer-events:none}
+        #wlh .wlh-cta-ico{flex:0 0 auto;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px var(--accent)}
+        #wlh .wlh-cta-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+        #wlh .wlh-cta-kick{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep)}
+        #wlh .wlh-cta-title{font-size:20px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+        #wlh .wlh-cta-sub{font-size:13.5px;color:var(--ink-dim)}
+        #wlh .wlh-cta-arrow{flex:0 0 auto;font-size:24px;color:var(--accent-deep);transition:transform .2s}
+        #wlh .wlh-cta:hover .wlh-cta-arrow{transform:translateX(5px)}
+        @media(max-width:520px){#wlh .wlh-cta-ico{display:none}#wlh .wlh-cta-arrow{display:none}}
+
+        /* ---- top bar ---- */
+        #wlh .wlh-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+        #wlh .wlh-back{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--accent-deep);border:1px solid var(--line-2);border-radius:9px;padding:9px 13px;transition:.15s}
+        #wlh .wlh-back:hover{border-color:var(--accent);background:var(--accent-soft)}
+        #wlh .wlh-bar-tag{font-family:var(--mono);font-size:11px;color:var(--ink-faint);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+
+        /* ---- steps ---- */
+        #wlh .wlh-steps{display:flex;gap:8px;margin:0 0 22px;flex-wrap:wrap}
+        #wlh .wlh-steps .s{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line);border-radius:8px;padding:8px 12px;transition:.25s}
+        #wlh .wlh-steps .s.active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:700}
+        #wlh .wlh-steps .s.done{color:var(--accent-deep);border-color:var(--line-2)}
+
+        /* ---- cards ---- */
+        #wlh .wlh-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:var(--shadow)}
+        #wlh .wlh-card h2{font-size:12px;font-family:var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 6px;display:flex;align-items:center;gap:10px;font-weight:700}
+        #wlh .wlh-card h2 .n{color:var(--ink-faint)}
+        #wlh .wlh-card .lead{color:var(--ink-dim);font-size:14px;margin:0 0 18px}
+
+        #wlh .q{margin:0 0 20px}
+        #wlh .q-label{font-size:15px;font-weight:600;margin:0 0 10px;display:flex;gap:8px;align-items:baseline}
+        #wlh .q-label .qnum{font-family:var(--mono);font-size:12px;color:var(--accent)}
+        #wlh .opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+        #wlh .opt{position:relative;border:1px solid var(--line-2);background:var(--panel-2);border-radius:12px;padding:13px 14px;cursor:pointer;transition:.16s;user-select:none}
+        #wlh .opt:hover{border-color:var(--accent);transform:translateY(-1px);background:#fff}
+        #wlh .opt .ot{font-weight:600;font-size:14px;display:block}
+        #wlh .opt .od{font-size:12.5px;color:var(--ink-dim);margin-top:3px;display:block}
+        #wlh .opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+        #wlh .opt.sel::after{content:"✓";position:absolute;top:9px;right:12px;color:var(--accent-deep);font-weight:700;font-family:var(--mono)}
+        #wlh .opt.disabled{opacity:.4;pointer-events:none;filter:grayscale(.6)}
+
+        #wlh .result{border:1px solid var(--line-2);border-radius:14px;overflow:hidden}
+        #wlh .result .rhead{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;background:var(--accent-soft);border-bottom:1px solid var(--line-2);flex-wrap:wrap}
+        #wlh .result .rname{font-size:18px;font-weight:700}
+        #wlh .result .rname small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);font-weight:400;margin-bottom:3px}
+        #wlh .pill-row{display:flex;gap:7px;flex-wrap:wrap}
+        #wlh .pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-dim);background:#fff}
+        #wlh .pill.on{color:var(--accent-deep);border-color:var(--accent);background:var(--accent-soft)}
+        #wlh .pill.off{color:var(--ink-faint);opacity:.7}
+        #wlh .rbody{padding:16px 18px}
+        #wlh .rbody p{margin:0 0 12px;font-size:13.5px;color:var(--ink-dim)}
+        #wlh .src{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--ink-dim);word-break:break-all;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin-bottom:14px}
+        #wlh .src a{color:var(--accent-deep);text-decoration:none}
+        #wlh .src a:hover{text-decoration:underline}
+
+        #wlh label.f{display:block;margin:0 0 14px}
+        #wlh label.f .lt{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+        #wlh label.f .lh{font-weight:400;color:var(--ink-faint);font-family:var(--mono);font-size:11px;margin-left:6px}
+        #wlh input.t,#wlh select.t{width:100%;background:#fff;border:1px solid var(--line-2);border-radius:9px;color:var(--ink);font-family:var(--mono);font-size:13px;padding:11px 12px;transition:.15s;-webkit-appearance:none;appearance:none}
+        #wlh input.t:focus,#wlh select.t:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+        #wlh input.t::placeholder{color:var(--ink-faint)}
+        #wlh .grid2{display:grid;gap:0 16px;grid-template-columns:1fr 1fr}
+        @media(max-width:560px){#wlh .grid2{grid-template-columns:1fr}}
+        #wlh .fee-note{font-family:var(--mono);font-size:11.5px;color:var(--amber);margin:-6px 0 14px}
+
+        #wlh .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:14px;border-radius:10px;padding:12px 18px;cursor:pointer;transition:.18s;text-decoration:none;border:1px solid transparent}
+        #wlh .btn-primary{background:var(--accent);color:#fff;box-shadow:0 12px 26px -12px var(--accent)}
+        #wlh .btn-primary:hover{transform:translateY(-2px);background:var(--accent-deep)}
+        #wlh .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line-2)}
+        #wlh .btn-ghost:hover{border-color:var(--accent);color:var(--accent-deep)}
+        #wlh .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+        #wlh .codewrap{position:relative;margin-top:6px}
+        #wlh .codewrap .clabel{position:absolute;top:10px;right:12px;display:flex;gap:7px;z-index:2}
+        #wlh .mini{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#cfe9df;border-radius:7px;padding:6px 10px;cursor:pointer;transition:.15s}
+        #wlh .mini:hover{color:#fff;border-color:var(--accent)}
+        #wlh pre{margin:0;background:var(--code-bg);border:1px solid #1d2a26;border-radius:12px;padding:18px 16px;overflow:auto;max-height:430px}
+        #wlh pre code{font-family:var(--mono);font-size:12.2px;line-height:1.65;color:var(--code-ink);white-space:pre;background:none;border:0;padding:0}
+        #wlh .tok-c{color:#7a8e85;font-style:italic}
+        #wlh .tok-k{color:#7fd0ff}
+        #wlh .tok-s{color:#5fe6a6}
+        #wlh .tok-hl{background:rgba(255,193,77,.22);border-radius:3px;padding:0 2px;color:#ffe0a3}
+
+        #wlh ol.deploy{counter-reset:st;list-style:none;padding:0;margin:6px 0 0}
+        #wlh ol.deploy li{position:relative;padding:0 0 18px 44px;border-left:1px solid var(--line-2);margin-left:14px}
+        #wlh ol.deploy li:last-child{border-left-color:transparent;padding-bottom:0}
+        #wlh ol.deploy li::before{counter-increment:st;content:counter(st);position:absolute;left:-14px;top:-2px;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--accent);color:var(--accent-deep);font-family:var(--mono);font-size:12px;font-weight:700;display:grid;place-items:center}
+        #wlh ol.deploy li b{color:var(--ink)}
+        #wlh ol.deploy li .h{font-size:13px;color:var(--ink-dim);margin-top:3px;line-height:1.5}
+
+        #wlh .callout{display:flex;gap:12px;border:1px solid var(--line-2);border-left:3px solid var(--amber);background:#fffaf0;border-radius:10px;padding:13px 15px;font-size:13px;color:var(--ink-dim);margin:0 0 16px}
+        #wlh .callout b{color:var(--amber)}
+        #wlh .callout.warn{border-left-color:var(--red);background:#fff5f5}
+        #wlh .callout.warn b{color:var(--red)}
+
+        #wlh .wlh-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;font-weight:700;font-family:var(--mono);font-size:12px;padding:11px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:99999;box-shadow:0 14px 30px -12px rgba(8,40,28,.5)}
+        #wlh .wlh-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+        </style>
+
+        <script id="wlh-script">
+        (function(){
+          "use strict";
+          const ROOT=document.getElementById("wlh");
+          if(!ROOT||ROOT._init)return; ROOT._init=true;
+          const $=s=>ROOT.querySelector(s), $$=s=>[...ROOT.querySelectorAll(s)];
+          const REPO="https://github.com/paygate-to/white-label-api";
+          const BASE="https://github.com/paygate-to/white-label-api/blob/main/";
+          const DEPLOY="https://deploy.workers.cloudflare.com/?url="+REPO;
+          const CF_CREATE="https://dash.cloudflare.com/?to=/:account/workers-and-pages/create";
+
+          // <script> text is raw CDATA, not entity-decoded — decode via textarea
+          const _dec=document.createElement("textarea");
+          const decodeEntities=s=>{_dec.innerHTML=s;return _dec.value;};
+          const TPL={};
+          ["default","affiliate","custom","crypto","advanced","subaffiliate"].forEach(k=>{
+            const el=ROOT.querySelector("#tpl-"+k);
+            TPL[k]= el ? decodeEntities(el.textContent.replace(/^\n/,"")) : "";
+          });
+
+          const EX={
+            evm:"0x505e71695E9bc45943c58adEC1650577BcA68fD9",
+            checkout:"checkout.example.com", hosted:"api.example.com",
+            btc:"bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4",
+            bch:"bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh",
+            ltc:"ltc1q7zhvk3xwhszepcplsyprzuh68xnw6mysd5k786",
+            doge:"D62eMUkApXg3R48CsVTyr8V4WFbeCijSyc",
+            trx:"TAUN6FwrnwwmaEqYcckffC7wYmbaS6cBiX",
+            sol:"CnkEQKAQ7s7ZtnRcoxahMaxv29rkQkTSLhA5cGosHDWp"
+          };
+
+          const sel={systems:null,affiliate:null,preset:null,sub:null};
+
+          function recommend(){
+            const {systems,affiliate,preset,sub}=sel;
+            if(systems==="cc_vcc_crypto"||sub==="yes")
+              return {key:"advanced",tpl:"advanced",name:"Advanced Full White-label",
+                src:BASE+"hidden-affiliate-address-version/Advanced-Full-White-label-with-sub-affiliate/worker.js",
+                sys:["cards","vcc","crypto"],aff:"custom",
+                desc:"Custom domain for credit cards, virtual credit cards (VCC) and crypto with custom commission, plus your own sub-affiliate program — your affiliates point their workers at your domain and set their own rate."};
+            if(affiliate==="none")
+              return {key:"default",tpl:"default",name:"Default worker.js",src:BASE+"worker.js",
+                sys:["cards","crypto"],aff:"none",
+                desc:"Use your custom domain for both the credit card and crypto systems with no affiliate earning. The cleanest white-label proxy."};
+            if(systems==="cc_crypto")
+              return {key:"crypto",tpl:"crypto",name:"Crypto Affiliate worker.js",
+                src:BASE+"hidden-affiliate-address-version/crypto-worker.js",sys:["cards","crypto"],aff:"custom",
+                desc:"Custom domain for both credit card and crypto systems with a custom commission paid to per-network wallets you set in the code."};
+            if(affiliate==="fixed")
+              return {key:"affiliate",tpl:"affiliate",name:"Default Affiliate worker.js",
+                src:BASE+"hidden-affiliate-address-version/worker.js",sys:["cards"],aff:"0.5%",
+                desc:"Custom domain for the credit card system with a fixed 0.5% commission to the hidden wallet baked into the code."};
+            if(affiliate==="preset")
+              return {key:"preset",tpl:"affiliate",name:(preset||"?")+"% Affiliate worker.js",
+                src:BASE+"hidden-affiliate-address-version/Increased-Affiliate-Commission/"+encodeURIComponent((preset||"")+" commission")+"/worker.js",
+                srcDir:"https://github.com/paygate-to/white-label-api/tree/main/hidden-affiliate-address-version/Increased-Affiliate-Commission",
+                sys:["cards"],aff:(preset||"?")+"%",preset:true,
+                desc:"Credit card custom domain with a fixed "+preset+"% commission. The rate is set server-side for this file — you only inject your wallet and checkout domain."};
+            return {key:"custom",tpl:"custom",name:"Custom Affiliate worker.js",
+              src:BASE+"hidden-affiliate-address-version/Custom-Affiliate-Commission/custom-affiliate.js",
+              sys:["cards"],aff:"custom",
+              desc:"Credit card custom domain with any commission percentage you choose, paid to the hidden wallet baked into the code."};
+          }
+
+          function fieldsFor(rec){
+            const f=[];
+            f.push({id:"checkout",label:"Your checkout / hosted domain",hint:"replaces checkout.example.com",ph:"payment.yourdomain.com"});
+            if(rec.aff!=="none") f.push({id:"evm",label:"Affiliate wallet (USDC · EVM / Polygon)",hint:"replaces 0x505e…fD9",ph:"0xYourEvmWalletAddress…"});
+            if(rec.key==="crypto"||rec.key==="advanced"){
+              f.push({id:"hosted",label:"Crypto hosted multi-coin domain",hint:"replaces api.example.com",ph:"api.yourdomain.com"});
+              f.push({id:"btc",label:"BTC wallet",hint:"optional",ph:"bc1…"});
+              f.push({id:"bch",label:"BCH wallet",hint:"optional",ph:"bitcoincash:…"});
+              f.push({id:"ltc",label:"LTC wallet",hint:"optional",ph:"ltc1…"});
+              f.push({id:"doge",label:"DOGE wallet",hint:"optional",ph:"D…"});
+              f.push({id:"trx",label:"TRX / TRC20 wallet",hint:"optional",ph:"T…"});
+              f.push({id:"sol",label:"SOL wallet",hint:"optional",ph:"…"});
+            }
+            if(rec.aff==="custom"){
+              f.push({id:"comm",label:"Your commission %",hint:"card system · total fees always = 0.99",ph:"1",num:true});
+              if(rec.key==="advanced") f.push({id:"vcc",label:"VCC commission %",hint:"% of each virtual card value",ph:"7",num:true});
+            }
+            f.push({id:"err",label:"Error redirect page",hint:"replaces https://www.example.com…",ph:"https://www.yourdomain.com/error"});
+            return f;
+          }
+
+          const round2=n=>Math.round(n*100)/100;
+          const clampFee=n=>{if(isNaN(n)||n<0)n=0;if(n>0.98)n=0.98;return round2(n);};
+          function build(rec,vals){
+            let c=TPL[rec.tpl];
+            if(vals.err){c=c.split("https://www.example.com/error").join(vals.err);c=c.split("https://www.example.com").join(vals.err.replace(/\/error$/,""));}
+            if(vals.checkout)c=c.split(EX.checkout).join(vals.checkout);
+            if(vals.hosted)c=c.split(EX.hosted).join(vals.hosted);
+            if(vals.evm)c=c.split(EX.evm).join(vals.evm);
+            ["btc","bch","ltc","doge","trx","sol"].forEach(k=>{if(vals[k])c=c.split(EX[k]).join(vals[k]);});
+            if(rec.aff==="custom"&&vals.comm!==""&&vals.comm!=null){
+              const fee=clampFee(parseFloat(vals.comm)/100),merch=round2(0.99-fee);
+              c=c.split("affiliate_fee=0.01").join("affiliate_fee="+fee);
+              c=c.split("merchant_fee=0.98").join("merchant_fee="+merch);
+            }
+            if(rec.key==="advanced"&&vals.vcc!==""&&vals.vcc!=null){
+              const vfee=clampFee(parseFloat(vals.vcc)/100);
+              c=c.split("affiliate_fee=0.07").join("affiliate_fee="+vfee);
+            }
+            return c;
+          }
+
+          function hl(code,vals){
+            let e=code.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+            e=e.replace(/(\/\/[^\n]*)/g,'<span class="tok-c">$1</span>');
+            e=e.replace(/('[^'\n]*')/g,'<span class="tok-s">$1</span>');
+            e=e.replace(/\b(const|let|async|function|await|return|if|else|new)\b/g,'<span class="tok-k">$1</span>');
+            [vals.evm,vals.checkout,vals.hosted,vals.btc,vals.bch,vals.ltc,vals.doge,vals.trx,vals.sol].filter(Boolean).forEach(v=>{
+              const esc=v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); e=e.replace(new RegExp(esc,'g'),'<span class="tok-hl">'+v+'</span>');
+            });
+            return e;
+          }
+
+          function pick(group,val,elGroup){sel[group]=val;elGroup.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel",o.dataset.val===val));syncWizard();}
+          $$(".opts").forEach(g=>g.addEventListener("click",e=>{
+            const opt=e.target.closest(".opt"); if(!opt||opt.classList.contains("disabled"))return;
+            pick(g.dataset.group,opt.dataset.val,g);
+          }));
+
+          function setSteps(active){$$(".wlh-steps .s").forEach(s=>{const n=+s.dataset.step;s.classList.toggle("active",n===active);s.classList.toggle("done",n<active);});}
+
+          function syncWizard(){
+            $("#q-preset").classList.toggle("hidden",sel.affiliate!=="preset");
+            if(sel.affiliate!=="preset")sel.preset=null;
+            const showSub=sel.systems==="cc_vcc_crypto";
+            $("#q-sub").classList.toggle("hidden",!showSub);
+            if(!showSub)sel.sub=null;
+            $('[data-group="affiliate"]').querySelectorAll(".opt").forEach(o=>{
+              const v=o.dataset.val, blocked=(v==="fixed"||v==="preset")&&sel.systems&&sel.systems!=="cc";
+              o.classList.toggle("disabled",blocked);
+              if(blocked&&sel.affiliate===v){sel.affiliate=null;o.classList.remove("sel");$("#q-preset").classList.add("hidden");}
+            });
+            let ready=sel.systems&&sel.affiliate;
+            if(sel.affiliate==="preset"&&!sel.preset)ready=false;
+            if(showSub&&!sel.sub)ready=false;
+            if(ready){renderResult();setSteps(2);} else {$("#step2").classList.add("hidden");setSteps(1);}
+          }
+
+          function renderResult(){
+            const rec=recommend(); renderResult._rec=rec;
+            $("#step2").classList.remove("hidden");
+            $("#rec-name").textContent=rec.name;
+            $("#rec-desc").textContent=rec.desc;
+            const a=$("#rec-src");a.href=rec.srcDir||rec.src;a.textContent=(rec.srcDir||rec.src).replace("https://github.com/","github.com/");
+            const pills=[];
+            [["cards","Credit cards"],["vcc","Virtual cards"],["crypto","Crypto"]].forEach(([k,lab])=>pills.push(`<span class="pill ${rec.sys.includes(k)?'on':'off'}">${lab}</span>`));
+            pills.push(`<span class="pill ${rec.aff==='none'?'off':'on'}">${rec.aff==='none'?'no earnings':'affiliate '+rec.aff}</span>`);
+            $("#rec-pills").innerHTML=pills.join("");
+            const fields=fieldsFor(rec); let html2='<div class="grid2">';
+            fields.forEach(f=>{html2+=`<label class="f"><span class="lt">${f.label}<span class="lh">${f.hint||''}</span></span><input class="t" data-fid="${f.id}" type="${f.num?'number':'text'}" ${f.num?'step="0.01" min="0"':''} placeholder="${f.ph||''}"></label>`;});
+            html2+="</div>"; $("#cfg-fields").innerHTML=html2;
+            $("#fee-note").classList.toggle("hidden",rec.aff!=="custom");
+            if(rec.aff==="custom")$("#fee-note").textContent="Fee math: affiliate_fee = your% ÷ 100, merchant_fee = 0.99 − affiliate_fee (the file's total is always 0.99).";
+          }
+
+          $("#genBtn").addEventListener("click",()=>{
+            const rec=renderResult._rec; if(!rec)return;
+            const vals={}; $$("#cfg-fields [data-fid]").forEach(inp=>vals[inp.dataset.fid]=inp.value.trim());
+            const code=build(rec,vals);
+            $("#codeOut").innerHTML=hl(code,vals); $("#codeOut")._raw=code;
+            $("#deployBtn").href=DEPLOY;
+            $("#preset-note").style.display=rec.preset?"flex":"none";
+            $("#step3").classList.remove("hidden"); setSteps(3);
+            $("#step3").scrollIntoView({behavior:"smooth",block:"start"});
+          });
+
+          function toast(m){const t=$("#wlh-toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1400);}
+          $("#copyBtn").addEventListener("click",()=>{navigator.clipboard.writeText($("#codeOut")._raw||"").then(()=>toast("worker.js copied")).catch(()=>toast("copy failed"));});
+          $("#dlBtn").addEventListener("click",()=>{
+            const raw=$("#codeOut")._raw||""; const b=new Blob([raw],{type:"text/javascript"});
+            const u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="worker.js";a.click();URL.revokeObjectURL(u);toast("downloaded");
+          });
+          $("#copyBtn2").addEventListener("click",()=>{navigator.clipboard.writeText($("#codeOut")._raw||"").then(()=>toast("worker.js copied — paste it over the default")).catch(()=>toast("copy failed"));});
+          $("#backBtn").addEventListener("click",()=>$("#step1").scrollIntoView({behavior:"smooth"}));
+
+          // ---- launch / switch between guide and helper ----
+          const launch=$("#wlh-launch"), app=$("#wlh-app");
+          let hiddenNodes=[];
+          function guideNodes(){
+            const out=[];
+            // siblings of #wlh inside its parent (the rest of your post content)
+            if(ROOT.parentNode){[...ROOT.parentNode.children].forEach(n=>{if(n!==ROOT)out.push(n);});}
+            // common post chrome outside the content container
+            ["header.entry-header",".entry-taxonomy","#post-navigation"].forEach(s=>{document.querySelectorAll(s).forEach(n=>{if(!ROOT.contains(n))out.push(n);});});
+            return out;
+          }
+          function openApp(){
+            launch.hidden=true; app.hidden=false;
+            hiddenNodes=guideNodes().map(n=>({n,d:n.style.display}));
+            hiddenNodes.forEach(o=>o.n.style.display="none");
+            ROOT.scrollIntoView({behavior:"smooth",block:"start"});
+          }
+          function closeApp(){
+            app.hidden=true; launch.hidden=false;
+            hiddenNodes.forEach(o=>o.n.style.display=o.d); hiddenNodes=[];
+            ROOT.scrollIntoView({behavior:"smooth",block:"start"});
+          }
+          function reset(){for(const k in sel)sel[k]=null;$$(".opt").forEach(o=>o.classList.remove("sel","disabled"));$("#q-preset").classList.add("hidden");$("#q-sub").classList.add("hidden");$("#step2").classList.add("hidden");$("#step3").classList.add("hidden");setSteps(1);}
+          launch.addEventListener("click",openApp);
+          $("#wlh-back").addEventListener("click",closeApp);
+          $("#closeBtn").addEventListener("click",closeApp);
+          $("#restartBtn").addEventListener("click",()=>{reset();$("#step1").scrollIntoView({behavior:"smooth"});});
+        })();
+        </script>
+      </div><!-- /#wlh -->
+      <!-- ============================================================= -->
+      <!-- ===== WLH EMBED · END ======================================= -->
+      <!-- ============================================================= -->
 		<p>In this tutorial you will learn how to use your own custom domain with our payment gateway API. You will be able to use your own domain instead of <strong>api.paygate.to</strong> and <strong>checkout.paygate.to</strong>. You will also be able to optionally <strong>insert your affiliate wallet to earn your desired percentage</strong> on every sale your sub-merchant receive.</p>
 <p>You need to make 4 steps:</p>
 <ol>

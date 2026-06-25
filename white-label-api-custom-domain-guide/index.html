@@ -990,6 +990,10 @@ async function handleRequest(request) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/btc&#x27;)) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/xmr&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=47rHxet74cydbZJESvBHXnVu9roCZit3LBPANKdsmBs8bVfSRXBoP3ihpV3FMEbxKH2cGGV1Jyxq4CVd2dqcPtrMESazYJ8&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/zec&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=t1V9Z6Px5nXqwRbMydWjoW4xtiqqhcvL2RC&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/bch&#x27;)) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/ltc&#x27;)) {
@@ -1097,6 +1101,10 @@ async function handleRequest(request) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=0x505e71695E9bc45943c58adEC1650577BcA68fD9&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/btc&#x27;)) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/xmr&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=47rHxet74cydbZJESvBHXnVu9roCZit3LBPANKdsmBs8bVfSRXBoP3ihpV3FMEbxKH2cGGV1Jyxq4CVd2dqcPtrMESazYJ8&#x27;;
+  } else if (url.pathname.includes(&#x27;/crypto/zec&#x27;)) {
+    url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=t1V9Z6Px5nXqwRbMydWjoW4xtiqqhcvL2RC&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/bch&#x27;)) {
     url.search += (url.search ? &#x27;&amp;&#x27; : &#x27;&#x27;) + &#x27;affiliate=bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh&#x27;;
   } else if (url.pathname.includes(&#x27;/crypto/ltc&#x27;)) {
@@ -1429,6 +1437,8 @@ if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
             evm:"0x505e71695E9bc45943c58adEC1650577BcA68fD9",
             checkout:"checkout.example.com", hosted:"api.example.com",
             btc:"bc1qx9t2l3pyny2spqpqlye8svce70nppwtaxwdrp4",
+			xmr:"47rHxet74cydbZJESvBHXnVu9roCZit3LBPANKdsmBs8bVfSRXBoP3ihpV3FMEbxKH2cGGV1Jyxq4CVd2dqcPtrMESazYJ8",
+			zec:"t1V9Z6Px5nXqwRbMydWjoW4xtiqqhcvL2RC",
             bch:"bitcoincash:qz6v8t9ajq79rrlnckv34am9cgp3dyuhrcj3npwtyh",
             ltc:"ltc1q7zhvk3xwhszepcplsyprzuh68xnw6mysd5k786",
             doge:"D62eMUkApXg3R48CsVTyr8V4WFbeCijSyc",
@@ -1481,6 +1491,8 @@ if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
               f.push({id:"doge",label:"DOGE wallet",hint:"optional",ph:"D…"});
               f.push({id:"trx",label:"TRX / TRC20 wallet",hint:"optional",ph:"T…"});
               f.push({id:"sol",label:"SOL wallet",hint:"optional",ph:"…"});
+			  f.push({id:"xmr",label:"Monero wallet",hint:"optional",ph:"…"});
+			  f.push({id:"zec",label:"Zcash wallet",hint:"optional",ph:"…"});
             }
             if(rec.aff==="custom"){
               f.push({id:"comm",label:"Your commission %",hint:"card system · total fees always = 0.99",ph:"1",num:true});
@@ -1498,7 +1510,7 @@ if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
             if(vals.checkout)c=c.split(EX.checkout).join(vals.checkout);
             if(vals.hosted)c=c.split(EX.hosted).join(vals.hosted);
             if(vals.evm)c=c.split(EX.evm).join(vals.evm);
-            ["btc","bch","ltc","doge","trx","sol"].forEach(k=>{if(vals[k])c=c.split(EX[k]).join(vals[k]);});
+            ["btc","xmr","zec","bch","ltc","doge","trx","sol"].forEach(k=>{if(vals[k])c=c.split(EX[k]).join(vals[k]);});
             if(rec.aff==="custom"&&vals.comm!==""&&vals.comm!=null){
               const fee=clampFee(parseFloat(vals.comm)/100),merch=round2(0.99-fee);
               c=c.split("affiliate_fee=0.01").join("affiliate_fee="+fee);
@@ -1516,7 +1528,7 @@ if (!url.pathname.includes(&#x27;process-payment.php&#x27;)) {
             e=e.replace(/(\/\/[^\n]*)/g,'<span class="tok-c">$1</span>');
             e=e.replace(/('[^'\n]*')/g,'<span class="tok-s">$1</span>');
             e=e.replace(/\b(const|let|async|function|await|return|if|else|new)\b/g,'<span class="tok-k">$1</span>');
-            [vals.evm,vals.checkout,vals.hosted,vals.btc,vals.bch,vals.ltc,vals.doge,vals.trx,vals.sol].filter(Boolean).forEach(v=>{
+            [vals.evm,vals.checkout,vals.hosted,vals.btc,vals.xmr,vals.zec,vals.bch,vals.ltc,vals.doge,vals.trx,vals.sol].filter(Boolean).forEach(v=>{
               const esc=v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); e=e.replace(new RegExp(esc,'g'),'<span class="tok-hl">'+v+'</span>');
             });
             return e;
